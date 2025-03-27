@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="headliner">
+        <button class="back" onclick="back()"><t>↩</t></button>
+        <h1>Статистика</h1>
+    </div>
+    <div class="emigrant-container">
+    <h1 id="days" class="days">Ты занимаешься уже 0 дней подряд!</h1>
+    <div class="statistics">
+        <div class="statistic">
+            <h2>Пройдено уровней: </h2>
+            <h1 id="total-levels"></h1>
+        </div>
+        <div class="statistic">
+            <h2>Пройдено уровней без ошибок: </h2>
+            <h1 id="no_mistakes"></h1>
+        </div>
+        <div class="statistic">
+            <h2>Совершено ошибок: </h2>
+            <h1 id="mistakes"></h1>
+        </div>
+    </div>
+    </div>
+    <script src="stats.js"></script>
+</body>
+</html>

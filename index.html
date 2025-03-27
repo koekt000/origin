@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор уровня и задания</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="strike"><t class="st">Дней подряд: 1</t></div>
+    
+    <div class="menu"> 
+        <button class="icon" onclick = "leaderboard()"><t>🏆</t></button>
+        <button class="icon" onclick = "daily()"><t>🎯</t></button>
+        <button class="icon" onclick = "stats()"><t>📝</t></button>
+    </div>
+    <div class = "lessons">
+        <div class="lesson_container">
+            <h2>Предлоги, союзы, местоимения, частицы</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Определение лексического значения слова</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Стилистический анализ текстов</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Постановка ударения</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Употребление паронимов</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Лексические нормы</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Морфологические нормы (образование форм слова)</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Синтаксические нормы. Нормы согласования. Нормы управления</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Правописание корней</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Правописание приставок</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Правописание суффиксов</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Правописание личных окончаний глаголов и суффиксов причастий</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Правописание НЕ и НИ</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Слитное, дефисное, раздельное написание слов</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Правописание -Н- и -НН- в суффиксах</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Пунктуация в сложносочиненном предложении и в предложении с однородными членами</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Знаки препинания в предложениях с обособленными членами</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Знаки препинания при словах и конструкциях, не связанных с членами предложения</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Знаки препинания в сложноподчиненном предложении</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Знаки препинания в сложных предложениях с разными видами связи</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>Постановка знаков препинания в различных случаях</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        <div class="lesson_container">
+            <h2>зыковые средства выразительности</h2>
+            <div class="levels">
+                <button class="level" onclick="selectLevel(1)">1</button>
+                <button class="level" onclick="selectLevel(2)">2</button>
+                <button class="level" onclick="selectLevel(3)">3</button>
+            </div>
+        </div>
+        
+        
+
+        
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

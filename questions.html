@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы уровня</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="zatemnenie">
+        <div id="okno">Правильный ответ:
+            <span id="correct-answer"></span>
+          <a href="#" class="close">Закрыть окно</a>
+        </div>
+      </div>
+      <div id="zatemnenie3">
+        <div id="okno2"><p>Давайте повторим номера, где вы ошиблись</p>
+          <a href="#" class="close">Закрыть окно</a>
+        </div>
+      </div>
+      <div id="zatemnenie2">
+        <div id="okno">Вы выполнили все задания!
+          <a class="close" onclick="back()">Главное меню</a>
+        </div>
+      </div>
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="incorrect-sound" src="incorrect.mp3"></audio>
+
+    <div class="headliner">
+        <button class="back" onclick="back()"><t>↩</t></button>
+        <h1><span id="level-number"></span></h1>
+    </div>
+    <div class="container">
+        
+        <div class="progress">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div id="task-container">
+            <div id="task"></div>
+            <button id="next-button" class="next-button" href="#zatemnenie">Следующий</button>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+</body>
+</html>
