@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String
-
+from sqlalchemy import func
 
 
 DB_URL = "sqlite:///tasks.db"
@@ -40,9 +40,10 @@ class MyServer(BaseHTTPRequestHandler):
         try:
             id = path_parts[-1]
             if path_parts[-2] == "daily":
-                user_data = self.get_random_task(id)
+                user_data = self.get_random_task()
             else:
-                user_data = self.get_task(id)
+                user_data = self.get_task(int(path_parts[-2]))
+                
             if user_data:
                 self.wfile.write(bytes(json.dumps(user_data), "utf-8"))
             else:
@@ -50,9 +51,9 @@ class MyServer(BaseHTTPRequestHandler):
         except:
             self.wfile.write(bytes(json.dumps({"error": "Invalid request"}), "utf-8"))
 
-    def get_random_task(self, id):
+    def get_random_task(self):
         session = Session()
-        user = session.query(Task).filter_by()[id]
+        user = session.query(Task).filter_by().order_by(func.random()).first()
         session.close()
         if user:
             return {
@@ -61,9 +62,10 @@ class MyServer(BaseHTTPRequestHandler):
                 "explanation": user.explain
             }
         return None
-    def get_task(self, id, number):
+    def get_task(self, number):
         session = Session()
-        user = session.query(Task).filter_by(number=number)[id]
+        user = session.query(Task).filter_by(number=number).order_by(func.random()).first()
+        print(user)
         session.close()
         if user:
             return {

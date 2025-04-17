@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const level = urlParams.get('level');
-const baseUrl = "http://192.168.189.100:8080";
+const baseUrl = "http://172.26.99.229:8080";
 let sus = {};
 function getRandomInt(min, max) {
     min = Math.ceil(min); // Round up to the nearest integer
@@ -23,13 +23,13 @@ async function httpGet(theUrl) {
 }
 
 async function gettask(id, action) {
-    const url = `${baseUrl}/users/${action}/${id}`; 
+    const url = `${baseUrl}/users/${action}/${id}`;
     return await httpGet(url);
 }
 
-async function getRandomTask() {
+async function getRandomTask(task) {
     try {
-        const response = await gettask(String(getRandomInt(1, 10)), "daily");
+        const response = await gettask(String(getRandomInt(1, 10)), String(task));
         //console.log(JSON.stringify(response));
         return response;
     } catch (error) {
@@ -38,15 +38,17 @@ async function getRandomTask() {
     }
 }
 
+
 document.getElementById('level-number').innerText = level;
 
 function back() {
     window.location.href = "index.html";
 }
 
+
 async function initialize() {
     
-    sus = await getRandomTask();
+    sus = await getRandomTask(level);
     console.log(sus)
     if (!sus) {
         console.error('Failed to fetch user data.');
@@ -69,13 +71,14 @@ async function initialize() {
             { question: `вопрос 2`, answer: `1`, explanation: "11" },
             { question: `вопрос 3`, answer: `1`, explanation: "11" }
         ],
-        daily: [
+        level: [
             sus
         ]
     };
 
     let currentQuestionIndex = 0;
-    let currentQuestions = questionsByLevel[level] || []; // Default to empty array if undefined
+    // let currentQuestions = questionsByLevel[level] || [];
+    let currentQuestions = [sus] || [];
     let incorrectAnswers = [];
     const correctSound = document.getElementById('correct-sound');
     const incorrectSound = document.getElementById('incorrect-sound');
