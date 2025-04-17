@@ -2,7 +2,7 @@ function back() {
     window.location.href = "index.html";
 }
 
-const baseUrl = "http://192.168.1.100:8080";
+const baseUrl = "http://172.26.103.14:8080";
 
 async function httpGet(theUrl) {
     try {

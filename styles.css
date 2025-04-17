@@ -90,7 +90,8 @@ h1, h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh; 
+    width: 50%;
+    margin-left:25%;
     font-family: Comic Sans MS, Comic Sans;
     border-radius: 10px;
 }
@@ -262,42 +263,49 @@ h1, h2 {
     align-items: center;
 }
 #zatemnenie {
-    background: rgba(102, 102, 102, 0.5);
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     display: none;
+    padding-top: 25vh;
   }
   #zatemnenie2 {
+    
+    padding-top: 5vh;
     background: rgba(102, 102, 102, 0.5);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     display: none;
+    padding-top: 40%;
   }
   #zatemnenie3 {
+    
+    padding-top: 5vh;
     background: rgba(102, 102, 102, 0.5);
+    padding-top: 40%;
     width: 100%;
     height: 100%;
-    position: absolute;
-    
+    position: fixed;
     top: 0;
     left: 0;
     display: none;
   }
-  #okno {
-    width: 300px;
-    height: 75px;
-    text-align: center;
+  #okoshko {
+    display: flex;
+    color:#e9f1f3;
+  }
+  #okno{
+    width: 40%;
+    margin-left: 30%;
     padding: 15px;
     border: 3px solid #18a59a;
     border-radius: 10px;
     color: #18a59a;
-    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -305,29 +313,24 @@ h1, h2 {
     margin: auto;
     background-color: #76c7c0;
   }
+
   #okno2 {
-    width: 300px;
-    height: 120px;
-    text-align: center;
+    width: 40%;
+    height: 10%;
     padding: 15px;
+    margin-top: 45%;
+    margin-left: 30%;
     border: 3px solid #18a59a;
     border-radius: 10px;
     color: #18a59a;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
     background-color: #76c7c0;
+    
   }
   #zatemnenie:target {display: block;}
   
   #zatemnenie2:target {display: block;}
   #zatemnenie3:target {display: block;}
   .close {
-    display: inline-block;
-    scale: 1.5;
     border: 1px solid #18a59a;
     border-radius: 20px;
     background-color: #76c7c0;
@@ -337,5 +340,6 @@ h1, h2 {
     text-decoration: none;
     font-size: 14pt;
     cursor:pointer;
+    
   }
   .close:hover {background: #5ba8a0;}
