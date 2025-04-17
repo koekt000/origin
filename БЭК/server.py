@@ -58,7 +58,7 @@ class MyServer(BaseHTTPRequestHandler):
         if user:
             return {
                 "question": user.task,
-                "answer": user.answer[1:],
+                "answer": user.answer,
                 "explanation": user.explain
             }
         return None
@@ -70,7 +70,7 @@ class MyServer(BaseHTTPRequestHandler):
         if user:
             return {
                 "question": user.task,
-                "answer": user.answer[1:],
+                "answer": user.answer,
                 "explanation": user.explain
             }
         return None

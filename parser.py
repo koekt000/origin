@@ -8,7 +8,7 @@ from sqlalchemy import Column, Integer, String
 def parse(id):
     link1 = 'https://rus-ege.sdamgia.ru/test?a=show_result&stat_id='
     link2 = '&retriable=1'
-    response = requests.get(link1+id+link2)
+    response = requests.get(link1+id+link2) 
     html = response.text
     engine = create_engine("sqlite:///tasks.db")
     Session = sessionmaker(bind=engine)
@@ -27,7 +27,8 @@ def parse(id):
     blocks = re.findall(patern_blocks, html, re.DOTALL)
     patern_tasks = r'<div align="justify" width="100%" class="pbody">(.*?)(?=Пояснение)'
     patern_numbers = r'(?<=тип ).*?(?=<)'
-    patern_answers = r'(?<=Правильный ответ:).*?(?=<)'
+    patern_answers_1 = r'(?<=Правильный ответ:).*?(?=<)'
+    patern_answers_2 = r'(?<=<p><span style="letter-spacing: 2px;">Ответ:).*?(?=<)'
     explain_patern = r'(?<=Пояснение).*?(?=Ваш ответ)'
     session = Session()
     while '' in blocks:
@@ -37,19 +38,26 @@ def parse(id):
         #tasks[0] = re.sub(r'<[^>]+>', '\n', tasks[0])
         #tasks[0]= re.sub(r'&[^;]*;', '', tasks[0])
         numbers = re.findall(patern_numbers, i)
-        answers = re.findall(patern_answers, i)
+        answers = re.findall(patern_answers_2, i)[-1].split("ИЛИ")
+        if not(answers):
+            answers = re.findall(patern_answers_1, i)[-1].split("|")
         answers.sort()
         explain = re.findall(explain_patern, i, re.DOTALL)
         #explain[0] = re.sub(r'<[^>]+>', '', explain[0])
-        answers[-1].replace(" ", '')
-        print(tasks, answers, numbers, explain)
+        for i in range(len(answers)):
+            answers[i] = answers[i].replace(" ", '')
+        answers[-1] = answers[-1].replace("</span>", '')
+        answers[-1] = answers[-1].replace(".", '')
+        answers[-1] = answers[-1].replace("ИЛИ", '|')
+        # print(tasks, answers, numbers, explain)
+        print(answers)
         new_task = Task(task=tasks[0], answer=answers[-1], number = int(numbers[0]), explain = explain[0])
         session.add(new_task)
 
-    session.commit()
-    session.close()
+        session.commit()
+        session.close()
 
-for i in range(1000000, 1001000):
+for i in range(1000020, 1000030):
     try:
         parse('8'+str(i))
     except:

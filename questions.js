@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const level = urlParams.get('level');
-const baseUrl = "http://172.26.99.229:8080";
+const baseUrl = "http://192.168.1.101:8080";
 let sus = {};
 function getRandomInt(min, max) {
     min = Math.ceil(min); // Round up to the nearest integer
@@ -103,10 +103,13 @@ async function initialize() {
     document.getElementById('next-button').addEventListener('click', function() {
         const input = document.querySelector(`input[name="answer${currentQuestionIndex + 1}"]`);
         const userAnswer = input.value.trim().toLowerCase();
-        if (userAnswer === currentQuestions[currentQuestionIndex].answer) {
+        var sp = currentQuestions[currentQuestionIndex].answer.split("|")
+        if (sp.includes(userAnswer)) {
+            console.log(sp, userAnswer)
             document.body.style.backgroundColor = "lightgreen";
             correctSound.play();
         } else {
+            console.log(sp, userAnswer)
             document.body.style.backgroundColor = "lightcoral";
             location.href = "#zatemnenie";
             const a = document.getElementById("correct-answer");
