@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const level = urlParams.get('level');
-const baseUrl = "http://192.168.1.101:8080";
+const baseUrl = "http://172.26.99.43:8080";
 let sus = {};
 function getRandomInt(min, max) {
     min = Math.ceil(min); // Round up to the nearest integer
